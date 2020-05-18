@@ -3,7 +3,7 @@ import React from 'react';
 const Staff = () => {
   return (
     <div>
-      Staff Component
+      <h1>Staff Component</h1>
     </div>
   )
 }
