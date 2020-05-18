@@ -1,11 +1,27 @@
 import React from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 
-const Home = () => {
-  return (
-    <div>
-      <h1>Home Component</h1>
-    </div>
-  )
-}
+const Home = () => { 
+
+  const { authState, authService } = useOktaAuth();
+
+  const login = async () => { 
+    // Redirect to '/' after login
+    authService.login('/');
+  }
+
+  const logout = async () => { 
+    // Redirect to '/' after logout
+    authService.logout('/logged_out');
+  }
+
+  if (authState.isPending) { 
+    return <div>Loading...</div>;
+  }
+
+  return authState.isAuthenticated ?
+    <button onClick={logout}>Logout</button> :
+    <button onClick={login}>Login</button>;
+};
 
 export default Home;

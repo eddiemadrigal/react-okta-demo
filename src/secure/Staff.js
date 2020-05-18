@@ -3,7 +3,7 @@ import React from 'react';
 const Staff = () => {
   return (
     <div>
-      <h1>Staff Component</h1>
+      Only authorized users can see this page!
     </div>
   )
 }
